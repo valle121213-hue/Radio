@@ -204,6 +204,17 @@ public void shouldNextRadioStation() {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldAfterMaxVolume() {
+        Radio radio = new Radio();
+
+        radio.setSoundVolume(101);
+
+        int expected = 0;
+        int actual = radio.getSoundVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     // Проверка функции Громче
 
