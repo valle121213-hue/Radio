@@ -1,7 +1,16 @@
 public class Radio {
 
-    private int currentRadioStationNumber;
-    private int soundVolume;
+    private int currentRadioStationNumber; // Номер Радиостанции
+    private int soundVolume; // Позиция громкости
+    private int radioStationsCount; // Количсевто радиостанций
+
+    public Radio() {
+        radioStationsCount = 10;
+    }
+
+    public Radio(int radioStationsCount) {
+        this.radioStationsCount = radioStationsCount;
+    }
 
 
     // получать текущую станцию
@@ -15,37 +24,35 @@ public class Radio {
         if (newCurrentRadioStationNumber < 0) {
             return;
         }
-        if (newCurrentRadioStationNumber > 9) {
+        if (newCurrentRadioStationNumber >= radioStationsCount) {
             return;
         }
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
-// следующая радиостанция
+//  следующая радиостанция
 
     public void next() {
-
-        if (currentRadioStationNumber < 9) {
-            currentRadioStationNumber++;
-        } else {
+        if (currentRadioStationNumber == radioStationsCount - 1) {
             currentRadioStationNumber = 0;
+        } else {
+            currentRadioStationNumber++;
         }
-
     }
 
 // предыдущая радиостанция
 
-    public void prev() {
-        if (currentRadioStationNumber > 0) {
-            currentRadioStationNumber--;
+    public void prev () {
+        if (currentRadioStationNumber == 0) {
+            currentRadioStationNumber = radioStationsCount - 1;
         } else {
-            currentRadioStationNumber = 9;
+            currentRadioStationNumber--;
         }
     }
 
 
+    // Функция Горомкость
 
-// Функция Горомкость
     // получать текущую громкость
     public int getSoundVolume() {
         return soundVolume;
