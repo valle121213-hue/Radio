@@ -42,7 +42,7 @@ public class Radio {
 
 // предыдущая радиостанция
 
-    public void prev () {
+    public void prev() {
         if (currentRadioStationNumber == 0) {
             currentRadioStationNumber = radioStationsCount - 1;
         } else {
